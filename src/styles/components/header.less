@@ -1,0 +1,36 @@
+.ty-header{
+  //height: 183px;
+  z-index: 10;
+  width:100%;
+  position:relative;
+  //border-bottom: 1.5px solid @base_color;
+  background: #fff;
+  .ty-logo{
+    z-index: 11;
+    font-size: 30px;
+    color: #333333;
+    //position: absolute;
+    //left: 10%;
+    //top: 60px;
+    margin: auto;
+    //margin-left:240px;
+    margin-top: 30px;
+    &::after {
+      content: '';
+      display: block;
+      height: 0;
+      clear: both;
+    }
+    >img{
+      width:43px;
+      height:40px;
+    }
+    .fr {
+      float: right;
+    }
+  }
+  .ty-nav{
+    float: left;
+    margin-left: 120px;
+  }
+}

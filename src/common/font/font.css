@@ -1,0 +1,35 @@
+@font-face {
+  font-family: 'Montserrat-Bold';
+  /* 引入字体 */
+  src: url('Montserrat-Bold.ttf');
+}
+@font-face {
+    font-family: 'Montserrat-Light';
+    /* 引入字体 */
+    src: url('Montserrat-Light.otf');
+}
+@font-face {
+  font-family: 'Roboto-Bold';
+  /* 引入字体 */
+  src: url('Roboto-Bold.woff.ttf');
+}
+@font-face {
+    font-family: 'Roboto-Medium';
+    /* 引入字体 */
+    src: url('Roboto-Medium.ttf');
+}
+@font-face {
+    font-family: 'Roboto-LightItalic';
+    /* 引入字体 */
+    src: url('Roboto-LightItalic.ttf');
+}
+@font-face {
+  font-family: 'PingFangSC-Blod';
+  /* 引入字体 */
+  src: url('PingFangSC-Blod.ttf');
+}
+@font-face {
+  font-family: 'PingFangSC-Regular';
+  /* 引入字体 */
+  src: url('PingFangSC-Regular.ttf');
+}

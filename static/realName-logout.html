@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script type="text/javascript">
+    var iframe;
+    ////清除cookie
+    clearCookies();
+    function clearCookies() {
+      var allCookies = cookies.all();
+      for (var cookieName in allCookies) {
+        if (allCookies.hasOwnProperty(cookieName)) {
+          cookies.erase(cookieName);
+        }
+      }
+    };
+    function load() {
+      iframe = document.getElementById("iframe");
+      iframe.onload = iframe.onreadystatechange = iframeload;
+      iframe.src = location.origin + '/zdpyc/door/logout';
+      this.parent = "";
+    }
+
+    function iframeload() {
+       if (!iframe.readyState || iframe.readyState == "complete" || iframe.readyState == "loaded") {
+        if (!window.location.origin) {
+          window.location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port : '');
+        }
+        // window.location.href = location.origin + "/zdpyc/door/logout";
+        var encodeUrl = encodeURIComponent(location.origin + "/static/alipay-logout.html");
+        var token = localStorage.getItem('token');
+        window.location.href = 'http://sfrz.shaanxi.gov.cn/sysauth-v3/oauth2-login?redirect_uri=' + encodeUrl + '&menuType=smrz&sysType=0&loginType=0&access_token='+ token
+      }
+    }
+  </script>
+</head>
+<body onload="load()">
+<iframe id="iframe" style="display: none" sandbox="allow-scripts"></iframe>
+</body>
+</html>

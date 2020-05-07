@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script type="text/javascript">
+    var iframe;
+    // var token = localStorage.getItem('token');
+    var guide=localStorage.getItem('showGuide');
+    localStorage.clear();
+    if(guide){
+      localStorage.setItem('showGuide',guide)
+    }
+    ////清除cookie
+    clearCookies();
+    function clearCookies() {
+      var allCookies = cookies.all();
+      for (var cookieName in allCookies) {
+        if (allCookies.hasOwnProperty(cookieName)) {
+          cookies.erase(cookieName);
+        }
+      }
+    };
+    function load() {
+      iframe = document.getElementById("iframe");
+      iframe.onload = iframe.onreadystatechange = iframeload;
+      iframe.src = "https://auth.alipay.com/login/logout.htm";
+      this.parent = "";
+    }
+    function iframeload() {
+      // fetch('http://61.185.238.225/sysauthserver/logout?access_token=' + token + '&client_id=000000047&client_secret=53dc5c87b35b5fb5199d986c02a33e55');
+      // fetch('http://61.185.238.209:10003/sysauthserver/logout?access_token=' + token + '&client_id=000000047&client_secret=53dc5c87b35b5fb5199d986c02a33e55');
+      if (!iframe.readyState || iframe.readyState == "complete" || iframe.readyState == "loaded") {
+        if (!window.location.origin) {
+          window.location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port : '');
+        }
+        window.location.href = location.origin + "/zdpyc/door/logout";
+      }
+    }
+  </script>
+</head>
+<body onload="load()">
+<iframe id="iframe" style="display: none" sandbox="allow-scripts"></iframe>
+</body>
+</html>

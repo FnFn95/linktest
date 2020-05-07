@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- <link rel="icon" href="./favicon.ico"> -->
+    <!-- <link type="favicon" rel="shortcut icon" href="/src/assets/images/favicon.ico" rel="external nofollow" /> -->
+    <!-- <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico" rel="external nofollow" /> -->
+    <title>INVELINK</title>
+    <link rel="shortcut icon " type="images/x-icon" href="/view/img/favicon.ico">
+  </head>
+  <body>
+    <div id="app"></div>
+<!--修复IE9不打开控制台没有console方法,页面空白-->
+    <script src="//at.alicdn.com/t/font_1599741_q3fj5umaerb.js"></script>
+<script>
+  try {
+  } catch (e) {
+    ;(function (g) {
+      'use strict';
+      var _console = g.console || {};
+      var methods = ['assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'exception', 'error', 'group', 'groupCollapsed', 'groupEnd', 'info', 'log', 'profile', 'profileEnd', 'table', 'time', 'timeEnd', 'timeStamp', 'trace', 'warn'];
+
+      var console = {version: '0.1.0'};
+      var key;
+      for (var i = 0, len = methods.length; i < len; i++) {
+        key = methods[i];
+        console[key] = function (key) {
+          return function () {
+            if (typeof _console[key] === 'undefined') {
+              return 0;
+            }
+
+            Function.prototype.apply.call(_console[key], _console, arguments);
+          };
+        }(key);
+      }
+
+      g.console = console;
+    }(window));
+  }
+</script>
+<!--修复IE9不支持performance.now()-->
+<script>
+  var isIE9 = function () {
+    return (window.navigator.userAgent.indexOf("MSIE 9.0") >= 1);
+  }
+  if (isIE9() && window.performance) {
+    window.performance.now = function () {
+      return ((+new Date()) - performance.timing.navigationStart);
+    }
+  }
+</script>
+
+</body>
+
+</html>
